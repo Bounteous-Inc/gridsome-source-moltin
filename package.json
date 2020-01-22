@@ -27,6 +27,7 @@
     "eslint-plugin-node": "^11.0.0"
   },
   "dependencies": {
+    "@moltin/request": "^2.0.2",
     "chalk": "^3.0.0",
     "progress": "^2.0.3"
   }
