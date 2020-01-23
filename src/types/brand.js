@@ -33,11 +33,10 @@ module.exports = async ({ client, actions }) => {
     if (
       brand.relationships.products
       && brand.relationships.products.data
-      && brand.relationships.products.data.length > 0) {
+      && brand.relationships.products.data.length > 0
+    ) {
       node.products = brand.relationships.products.data
         .map(({ id }) => actions.createReference('MoltinProduct', id));
-
-      log(node.products);
     }
 
     brands.addNode(node);
