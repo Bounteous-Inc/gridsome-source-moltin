@@ -1,0 +1,24 @@
+type MoltinProduct implements Node {
+  id: ID! # The unique identifier for this product
+  sku: String # A unique SKU value
+  slug: String! # A human readable slug value. Must be unique
+  name: String! # A human readable name for this product
+  description: String! # A human readable description of the product
+  manage_stock: Boolean! # This should be true if you wish to use the Inventory API to manage stock
+  status: String! # live or draft
+  commodity_type: String! # physical or digital
+  created_at: Date!
+  updated_at: Date!
+  stock_level: Int!
+  stock_availability: String!
+  # main_image: MoltinFile!
+  display_price: JSON!
+  price: [MoltinPrice!]! # An array of prices for this product in different currencies. Also see: The price object below.
+}
+
+type MoltinPrice implements Node {
+  id: ID!
+  amount: Int! # Value of the price in the lowest denomination for that currency
+  currency: String! # Currency code of this price (3 letter ISO)
+  includes_tax: Boolean! # true if relevant taxes have been included in the price false if not
+}

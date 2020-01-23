@@ -1,6 +1,9 @@
 {
   "name": "@bounteous/gridsome-source-moltin",
   "version": "1.0.0",
+  "engines": {
+    "node": ">=11.14.0"
+  },
   "description": "Moltin source plugin for Gridsome",
   "main": "src/index.js",
   "scripts": {
@@ -27,8 +30,10 @@
     "eslint-plugin-node": "^11.0.0"
   },
   "dependencies": {
-    "@moltin/request": "^2.0.2",
+    "@moltin/sdk": "^3.23.0",
     "chalk": "^3.0.0",
-    "progress": "^2.0.3"
+    "mime-types": "^2.1.26",
+    "progress": "^2.0.3",
+    "request": "^2.88.0"
   }
 }

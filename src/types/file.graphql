@@ -1,0 +1,13 @@
+type MoltinFile implements Node {
+  id: ID! # The unique identifier for this file
+  type: String! #The type represents the object being returned
+  href: String! # The publicly available URL for this file
+  image: Image # Gridsome image object 🤞🏻
+  file_name: String! # The name of the file
+  mime_type: String! # The mime type of the file
+  file_size: Int! # The size of the file
+  public: Boolean! # Is this file public or not
+  width: Int! # The width of the file
+  height: Int! # The height of the file
+  created_at: Date! #The creation date of the file
+}
