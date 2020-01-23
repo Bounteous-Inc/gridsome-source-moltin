@@ -8,4 +8,5 @@ type MoltinCategory implements Node {
   created_at: Date! # The creation date of this brand
   updated_at: Date! # The updated date of this brand
   products: [MoltinProduct!]! # An array of products for this brand
+  children: [MoltinCategory!]! # Categories nested within this 
 }

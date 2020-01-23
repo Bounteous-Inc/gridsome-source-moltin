@@ -42,5 +42,23 @@ module.exports = async ({ client, actions }) => {
     categories.addNode(node);
   });
 
+  // Create hierarchical structure
+  const tree = (await client.Categories.Tree()).data;
+
+  function associateChildren(parents) {
+    parents.forEach((parent) => {
+      if (parent.children && parent.children.length > 0) {
+        const node = categories.findNode({ id: parent.id });
+        node.children = parent.children
+          .map(({ id }) => {
+            associateChildren(parents.children);
+            return actions.createReference('MoltinCategory', id);
+          });
+      }
+    });
+  }
+
+  associateChildren(tree);
+
   success(`${typeName} × ${data.length}`);
 };
