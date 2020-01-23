@@ -1,12 +1,11 @@
-const { readFile } = require('fs').promises;
-const { join } = require('path');
 const { log, warn, success } = require('../lib/log');
+const schema = require('../lib/schema');
 
 const typeName = 'MoltinProduct';
 
 module.exports = async ({ client, actions }) => {
   // Add schema types
-  actions.addSchemaTypes((await readFile(join(__dirname, 'product.graphql'))).toString());
+  actions.addSchemaTypes(await schema('file'));
   const products = actions.addCollection(typeName);
   const prices = actions.addCollection('MoltinPrice');
 

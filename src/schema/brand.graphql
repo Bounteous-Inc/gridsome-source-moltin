@@ -1,0 +1,11 @@
+type MoltinBrand implements Node {
+  id: ID! # The unique identifier for this brand
+  type: String! # The type represents the object being returned
+  name: String! # The name of the brand
+  slug: String! # A unique slug for the brand
+  description: String! # A description for the brand
+  status: String! # live or draft depending on the brand status
+  created_at: Date! # The creation date of this brand
+  updated_at: Date! # The updated date of this brand
+  products: [MoltinProduct!]! # An array of products for this brand
+}

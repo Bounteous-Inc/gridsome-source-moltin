@@ -1,8 +1,9 @@
-const { readFile } = require('fs').promises;
 const { existsSync, createWriteStream } = require('fs');
 const { join } = require('path');
 const request = require('request');
 const mime = require('mime-types');
+
+const schema = require('../lib/schema');
 const {
   log, warn, success, getProgressBar,
 } = require('../lib/log');
@@ -13,7 +14,7 @@ const typeName = 'MoltinFile';
 
 module.exports = async ({ client, actions, options }) => {
   // Add schema types
-  actions.addSchemaTypes((await readFile(join(__dirname, 'file.graphql'))).toString());
+  actions.addSchemaTypes(await schema('file'));
   const files = actions.addCollection(typeName);
 
   // Fetch all data

@@ -11,7 +11,6 @@ type MoltinProduct implements Node {
   updated_at: Date!
   stock_level: Int!
   stock_availability: String!
-  # main_image: MoltinFile!
   display_price: JSON!
   price: [MoltinPrice!]! # An array of prices for this product in different currencies. Also see: The price object below.
   main_image: MoltinFile
