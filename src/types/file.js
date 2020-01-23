@@ -1,4 +1,3 @@
-const { promisify } = require('util');
 const { readFile } = require('fs').promises;
 const { existsSync, createWriteStream } = require('fs');
 const { join } = require('path');
@@ -44,7 +43,11 @@ module.exports = async ({ client, actions, options }) => {
     for (const node of nodes) {
       const filePath = join(options.downloadPath, `${node.id}.${mime.extension(node.mime_type)}`);
       await new Promise((resolve) => {
-        request(node.href).pipe(createWriteStream(filePath).on('close', resolve));
+        if (existsSync(filePath)) {
+          resolve();
+        } else {
+          request(node.href).pipe(createWriteStream(filePath).on('close', resolve));
+        }
       });
       node.image = filePath;
       bar.tick();

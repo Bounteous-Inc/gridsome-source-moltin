@@ -16,9 +16,11 @@ function success(...args) {
 }
 
 function getProgressBar(typeName, count) {
-  return new ProgressBar(`${chalk.black.bgBlue(prefix)} Fetching ${typeName} :id :bar :percent`, {
+  return new ProgressBar(`${chalk.black.bgBlue(prefix)} Fetching ${typeName} × :current (:percent ETA :etas) ⸨:bar⸩`, {
     total: count,
     clear: true,
+    complete: '█',
+    incomplete: '░',
   });
 }
 
