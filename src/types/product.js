@@ -15,8 +15,13 @@ module.exports = async ({ client, actions }) => {
   const { data } = await client.Products.All();
 
   // Populate internal data store with fetched product data
-  if (data.length > 0) {
-    data.forEach((product) => products.addNode({
+  if (data.length === 0) {
+    warn('No Products Found');
+    return;
+  }
+
+  data.forEach((product) => {
+    const node = {
       id: product.id,
       sku: product.sku,
       slug: product.slug,
@@ -29,10 +34,17 @@ module.exports = async ({ client, actions }) => {
       price: product.price.map((price, index) => actions.createReference(
         prices.findNode(price) || prices.addNode(price),
       )),
-    }));
+    };
 
-    success(`${typeName} × ${data.length}`);
-  } else {
-    warn('No Products Found');
-  }
+    if (product.relationships.main_image) {
+      node.main_image = actions.createReference(
+        'MoltinFile',
+        product.relationships.main_image.data.id,
+      );
+    }
+
+    products.addNode(node);
+  });
+
+  success(`${typeName} × ${data.length}`);
 };

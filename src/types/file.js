@@ -7,6 +7,8 @@ const {
   log, warn, success, getProgressBar,
 } = require('../lib/log');
 
+const image = /^image\//;
+
 const typeName = 'MoltinFile';
 
 module.exports = async ({ client, actions, options }) => {
@@ -49,7 +51,11 @@ module.exports = async ({ client, actions, options }) => {
           request(node.href).pipe(createWriteStream(filePath).on('close', resolve));
         }
       });
-      node.image = filePath;
+
+      if (image.test(node.mime_type)) {
+        node.image = filePath;
+      }
+
       bar.tick();
     }
   }
