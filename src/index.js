@@ -1,5 +1,5 @@
-const { log, warn, success } = require('./lib/log');
-const types = require('./types');
+const { warn } = require('./lib/log');
+const types = require('./lib/types');
 
 class MoltinSource {
   static defaultOptions() {
@@ -11,7 +11,7 @@ class MoltinSource {
 
   constructor(api, options) {
     if (options.clientId === null) {
-      warn('No `client_id` was provided, therefore no products will be imported');
+      warn('No `client_id` was provided, therefore no data will be imported');
       return;
     }
 
@@ -21,8 +21,6 @@ class MoltinSource {
       for (const type of types) {
         await type({ client, actions, options });
       }
-
-      success('Success');
     });
   }
 }
