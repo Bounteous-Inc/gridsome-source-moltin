@@ -30,6 +30,7 @@ module.exports = async ({ client, actions }) => {
       status: product.status,
       commodity_type: product.commodity_type,
       created_at: product.meta.timestamps.created_at,
+      updated_at: product.meta.timestamps.updated_at,
       price: product.price.map((price, index) => actions.createReference(
         prices.findNode(price) || prices.addNode(price),
       )),
