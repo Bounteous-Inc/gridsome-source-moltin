@@ -4,9 +4,7 @@ Elastic Path Moltin API source plugin for Gridsome. Pulls catalogue data from yo
 
 ## Installation
 
-`npm i -s https://bitbucket.org/hs2studio/gridsome-source-moltin.git`
-
-TODO: Publish to NPM
+`npm i -D @bounteous/gridsome-source-moltin`
 
 ## Usage
 
