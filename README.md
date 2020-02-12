@@ -4,7 +4,7 @@ Elastic Path Moltin API source plugin for Gridsome. Pulls catalogue data from yo
 
 ## Installation
 
-`npm i -D @bounteous/gridsome-source-moltin`
+`npm install --save-dev @bounteous/gridsome-source-moltin`
 
 ## Usage
 
@@ -22,10 +22,9 @@ module.exports = {
         // It's a good idea to store this in an .env file
         clientId: process.env.GRIDSOME_MOLTIN_CLIENT_ID, 
         
-        // Optional. A directory to cache your store's files.
+        // Optional, Recommended. A directory to cache your store's files.
         // Enables the `image` field in MoltinFile types
-        downloadPath: 
-          join(__dirname, '../content/moltin/files'),
+        downloadPath: join(__dirname, '../content/moltin/files'),
       },
     },
   ],
@@ -143,3 +142,11 @@ module.exports = {
 ## License
 
 This project is licensed under the MIT License. See LICENSE for details.
+
+## Who we are
+
+> Bounteous creates big-picture digital solutions that help leading companies deliver transformational brand experiences.
+
+Founded in 2003 in Chicago, Bounteous creates big-picture digital solutions that help leading companies deliver transformational brand experiences. Our expertise includes Strategy, Experience Design, Technology, Analytics and Insight, and Marketing. Bounteous forms problem-solving partnerships with our clients to envision, design, and build their digital futures.
+
+[We're hiring!](https://www.bounteous.com/careers/) And we are the commerce and front end experts you've been looking for. [Meet us](https://www.bounteous.com/).
