@@ -4,7 +4,7 @@
   "engines": {
     "node": ">=11.14.0"
   },
-  "description": "Moltin source plugin for Gridsome",
+  "description": "Elastic Path Commerce Cloud source plugin for Gridsome",
   "main": "src/index.js",
   "scripts": {
     "test": "npm run lint",
@@ -18,7 +18,9 @@
     "gridsome-plugin",
     "gridsome-source-plugin",
     "moltin",
-    "elastic-path"
+    "elastic-path",
+    "Elastic Path",
+    "Elastic Path Commerce Cloud"
   ],
   "author": "Ricardo Pereira <ricardo.pereira@bounteous.com>",
   "license": "MIT",
