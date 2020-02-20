@@ -1,6 +1,8 @@
-# Elastic Path Moltin Gridsome Source
+# Elastic Path Commerce Cloud Gridsome Source
 
-Elastic Path Moltin API source plugin for Gridsome. Pulls catalogue data from your Moltin Store into a Gridsome project. 
+Elastic Path's Commerce Cloud API (f.k.a Moltin) source plugin for Gridsome. Pulls your store's catalogue data into a Gridsome project.
+
+Check out the [Gridsome Elastic Path Commerce Cloud Starter](https://gridsome.org/starters/elastic-path-moltin-starter/) for a demo utilizing this plugin.
 
 ## Installation
 
@@ -17,8 +19,8 @@ module.exports = {
     {
       use: '@bounteous/gridsome-source-moltin',
       options: {
-        // Your Moltin Store Client ID
-        // (🔗 https://dashboard.moltin.com/app)
+        // Your Elastic Path Commerce Cloud Store Client ID
+        // (🔗 https://dashboard.elasticpath.com/app)
         // It's a good idea to store this in an .env file
         clientId: process.env.GRIDSOME_MOLTIN_CLIENT_ID, 
         
