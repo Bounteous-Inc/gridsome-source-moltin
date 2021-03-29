@@ -4,6 +4,7 @@ const types = require('./lib/types');
 class MoltinSource {
   static defaultOptions() {
     return {
+      host: undefined,
       clientId: null,
       downloadPath: null,
     };
@@ -15,7 +16,7 @@ class MoltinSource {
       return;
     }
 
-    const client = require('./lib/client')(options.clientId);
+    const client = require('./lib/client')(options);
 
     api.loadSource(async (actions) => {
       for (const type of types) {
