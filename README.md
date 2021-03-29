@@ -27,6 +27,10 @@ module.exports = {
         // Optional, Recommended. A directory to cache your store's files.
         // Enables the `image` field in MoltinFile types
         downloadPath: join(__dirname, '../content/moltin/files'),
+
+        // Optional. Needed if you host on your own infrastructure.
+        // (🔗 https://github.com/moltin/js-sdk#custom-host)
+        host: 'api.mydomain.com',
       },
     },
   ],
